@@ -52,7 +52,7 @@ int str_match(string x,string y){
         for(int j=1;j<=n;j++){
             
         if(x[i-1]==y[j-1])
-            dp[i][j] = min(dp[i-1][j-1],min(dp[i-1][j]+gap, dp[i][j-1]+gap));
+            dp[i][j] =dp[i-1][j-1];
         else
             dp[i][j] = min(dp[i-1][j-1]+cost(x[i],y[j]) ,min(dp[i-1][j]+gap, dp[i][j-1]+gap));
         }
@@ -72,8 +72,8 @@ int str_match(string x,string y){
 
 int main(){
     
-    string x = "named";
-    string y ="naemse";
+    string x = "name";
+    string y ="naem";
 
     cout<<str_match(x,y);
     return 0;
